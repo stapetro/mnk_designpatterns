@@ -36,7 +36,7 @@ public class EncapsulatedUser {
 
     @Override
     public String toString() {
-        return String.format("%s -> %s", getFullName(), getEmail());
+        return "EncapsulatedUser [email=" + getEmail() + ", fullName=" + getFullName() + "]";
     }
 
 }

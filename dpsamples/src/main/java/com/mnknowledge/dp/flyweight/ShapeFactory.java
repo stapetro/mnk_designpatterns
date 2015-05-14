@@ -11,6 +11,7 @@ public abstract class ShapeFactory {
     public Shape getShapeBy(Color color) {
         Shape shape = shapeByColorPool.get(color);
         if (shape == null) {
+            System.out.println("Create shape with color " + color.toString());
             shape = createNewShape();
             shape.setColor(color);
             shapeByColorPool.put(color, shape);

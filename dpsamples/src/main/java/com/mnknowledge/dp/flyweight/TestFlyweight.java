@@ -3,9 +3,12 @@ package com.mnknowledge.dp.flyweight;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,9 +17,12 @@ import javax.swing.JPanel;
 public class TestFlyweight extends JFrame {
 
     private static final Color colors[] = { Color.red, Color.blue, Color.yellow, Color.orange, Color.black, Color.white };
-    private static final int WIDTH_ = 400, HEIGHT = 400, NUMBER_OF_SHAPES = 50;
+    private static final int WIDTH_ = 400, HEIGHT = 400, NUMBER_OF_SHAPES = 1000;
+    private final Random random = new Random();
 
     public TestFlyweight() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         Container contentPane = getContentPane();
         JButton button = new JButton("Draw Shape");
         final JPanel panel = new JPanel();
@@ -45,11 +51,11 @@ public class TestFlyweight extends JFrame {
     }
 
     private int getRandomX() {
-        return (int) (Math.random() * WIDTH);
+        return (int) (random.nextInt(40) * 10);
     }
 
     private int getRandomY() {
-        return (int) (Math.random() * HEIGHT);
+        return (int) (random.nextInt(40) * 10);
     }
 
     private int getRandomR() {

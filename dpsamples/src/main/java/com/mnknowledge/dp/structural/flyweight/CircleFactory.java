@@ -1,4 +1,4 @@
-package com.mnknowledge.dp.flyweight;
+package com.mnknowledge.dp.structural.flyweight;
 
 public class CircleFactory extends ShapeFactory {
 

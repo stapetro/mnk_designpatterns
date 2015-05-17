@@ -32,10 +32,10 @@ public class TestFlyweight extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
+        final ShapeFactory shapeFactory = new CircleFactory();
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 Graphics g = panel.getGraphics();
-                ShapeFactory shapeFactory = new CircleFactory();
                 for (int i = 0; i < NUMBER_OF_SHAPES; ++i) {
                     CircleExtrinsicState context = new CircleExtrinsicState();
                     context.setGraphics(g);

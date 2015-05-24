@@ -40,6 +40,20 @@ public class MilkingMachineClient {
         System.out.println("\nTurn off machine and clears speed!");
         invoker.invoke(Arrays.asList(client.bindCommand(new SpeedCommand(null)), client.bindCommand(new TurnOffCommand())));
         client.printMilkingMachine();
+
+        System.out.println("\n[MacroCommand] Turn on machine with low speed!");
+        MacroCommand macro = new MacroCommand();
+        macro.add(client.bindCommand(new TurnOnCommand()));
+        macro.add(client.bindCommand(new SpeedCommand(SpeedLevel.LOW)));
+        invoker.invoke(macro);
+        client.printMilkingMachine();
+
+        System.out.println("\n[MacroCommand] Clear speed and Turn off!");
+        macro.clearChildren();
+        macro.add(client.bindCommand(new SpeedCommand(null)));
+        macro.add(client.bindCommand(new TurnOffCommand()));
+        invoker.invoke(macro);
+        client.printMilkingMachine();
     }
 
     /**

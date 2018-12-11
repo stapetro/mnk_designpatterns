@@ -7,7 +7,7 @@ package com.mnknowledge.dp.creational.builder.car;
  * @author siiliev
  *
  */
-public class FordMondeoBuilder extends CarBuilder {
+public class FordMondeoBuilder extends Car.Builder {
     public FordMondeoBuilder() {
         make("Ford");
         model("Mondeo");

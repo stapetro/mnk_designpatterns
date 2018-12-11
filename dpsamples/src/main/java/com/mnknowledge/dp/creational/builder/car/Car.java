@@ -2,34 +2,97 @@ package com.mnknowledge.dp.creational.builder.car;
 
 /**
  * Car - the object that will be build.
- *
- * @author siiliev
- *
  */
 public class Car {
-    private String _make;
-    private String _model;
-    private boolean _mp3Player;
-    private String _carBody;
-    private String _colour;
-    private int _numberOfDoors;
-    private String _engineSize;
-    private boolean _sunroof;
-    private boolean _satNav;
-    private boolean _alarm;
+    private final String _make;
+    private final String _model;
+    private final boolean _mp3Player;
+    private final String _carBody;
+    private final String _colour;
+    private final int _numberOfDoors;
+    private final String _engineSize;
+    private final boolean _sunroof;
+    private final boolean _satNav;
+    private final boolean _alarm;
 
-    public Car(String make, String model, boolean mp3Player, String carBody, String colour, int numberOfDoors,
-            String engineSize, boolean sunroof, boolean satNav, boolean alarm) {
-        _make = make;
-        _model = model;
-        _mp3Player = mp3Player;
-        _carBody = carBody;
-        _colour = colour;
-        _numberOfDoors = numberOfDoors;
-        _engineSize = engineSize;
-        _sunroof = sunroof;
-        _satNav = satNav;
-        _alarm = alarm;
+    public static class Builder {
+        private String _make;
+        private String _model;
+        private boolean _mp3Player;
+        private String _carBody;
+        private String _colour;
+        private int _numberOfDoors;
+        private String _engineSize;
+        private boolean _sunroof;
+        private boolean _satNav;
+        private boolean _alarm;
+
+        public Builder make(String make) {
+            _make = make;
+            return this;
+        }
+
+        public Builder model(String model) {
+            _model = model;
+            return this;
+        }
+
+        public Builder addAlarm(boolean alarm) {
+            _alarm = alarm;
+            return this;
+        }
+
+        public Builder addSatNav(boolean satNav) {
+            _satNav = satNav;
+            return this;
+        }
+
+        public Builder addSunroof(boolean sunroof) {
+            _sunroof = sunroof;
+            return this;
+        }
+
+        public Builder mp3Player(boolean mp3Player) {
+            _mp3Player = mp3Player;
+            return this;
+        }
+
+        public Builder carBody(String carBody) {
+            _carBody = carBody;
+            return this;
+        }
+
+        public Builder paintColor(String colour) {
+            _colour = colour;
+            return this;
+        }
+
+        public Builder addDoors(int numberOfDoors) {
+            _numberOfDoors = numberOfDoors;
+            return this;
+        }
+
+        public Builder addEngine(String engineSize) {
+            _engineSize = engineSize;
+            return this;
+        }
+
+        public Car build() {
+            return new Car(this);
+        }
+    }
+
+    private Car(Builder builder) {
+        _make = builder._make;
+        _model = builder._model;
+        _mp3Player = builder._mp3Player;
+        _carBody = builder._carBody;
+        _colour = builder._colour;
+        _numberOfDoors = builder._numberOfDoors;
+        _engineSize = builder._engineSize;
+        _sunroof = builder._sunroof;
+        _satNav = builder._satNav;
+        _alarm = builder._alarm;
     }
 
     public String getMake() {

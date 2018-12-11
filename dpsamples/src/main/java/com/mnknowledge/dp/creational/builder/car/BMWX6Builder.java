@@ -7,7 +7,7 @@ package com.mnknowledge.dp.creational.builder.car;
  * @author siiliev
  *
  */
-public class BMWX6Builder extends CarBuilder {
+public class BMWX6Builder extends Car.Builder {
     public BMWX6Builder() {
         make("BMW");
         model("X6");
